@@ -146,8 +146,9 @@ impl State {
     fn dead(&mut self, ctx: &mut BTerm) {
         ctx.cls();
         ctx.print_centered(5, "You are dead!");
-        ctx.print_centered(9, "(P) Play Again");
-        ctx.print_centered(12, "(Q) Quit Game");
+        ctx.print_centered(9, &format!("You earned {} points", self.score));
+        ctx.print_centered(13, "(P) Play Again");
+        ctx.print_centered(17, "(Q) Quit Game");
 
         if let Some(key) = ctx.key {
             match key {
